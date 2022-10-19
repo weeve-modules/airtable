@@ -59,8 +59,8 @@ Input to this module is:
 
 ```json
 {
-    "label-1": 12,
-    "label-2": "speed"
+   "temperature": 12,
+   "device": "Konin-1"
 }
 ```
 
