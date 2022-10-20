@@ -6,9 +6,12 @@ Edit this file to implement your module.
 """
 
 from logging import getLogger
+from .params import PARAMS
+from pyairtable import Table
 
 log = getLogger("module")
 
+table = Table(PARAMS['API_KEY'], PARAMS['BASE_ID'], PARAMS['TABLE'])
 
 def module_main(received_data: any) -> str:
     """
@@ -23,10 +26,14 @@ def module_main(received_data: any) -> str:
 
     """
 
-    log.debug("Outputting ...")
+    log.debug("Writing to Airtable ...")
 
     try:
-        # YOUR CODE HERE
+        if type(received_data) is list:
+            for data in received_data:
+                table.create(data)
+        else:
+            table.create(received_data)
 
         return None
 

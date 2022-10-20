@@ -1,13 +1,16 @@
 version: "3.0"
 services:
-  boilerplate:
+  airtable:
     build:
       context: ../
       dockerfile: docker/Dockerfile
     environment:
-      MODULE_NAME: "boilerplate"
+      MODULE_NAME: "airtable"
       MODULE_TYPE: "Output"
       INGRESS_HOST: "0.0.0.0"
       INGRESS_PORT: "80"
+      BASE_ID: abcdefghijklm
+      API_KEY: key1234567890
+      TABLE: myTable
     ports:
       - 80:80
