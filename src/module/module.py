@@ -30,8 +30,7 @@ def module_main(received_data: any) -> str:
 
     try:
         if type(received_data) is list:
-            for data in received_data:
-                table.create(data)
+            table.batch_create(received_data)
         else:
             table.create(received_data)
 
